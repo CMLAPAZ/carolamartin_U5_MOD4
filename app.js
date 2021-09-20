@@ -9,8 +9,9 @@ var session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/admin/login.js'); //login.js
-//var usersRouter = require('./routes/users');
+// var usersRouter = require('./routes/users');
 var adminRouter = require('./routes/admin/novedades.js');
+
 
 var app = express();
 
@@ -46,7 +47,8 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/admin/login', loginRouter);
-app.use('/admin/novedades', secured, adminRouter);
+app.use('/admin/novedades', adminRouter);
+
 
 //app.use('/users', usersRouter);
 

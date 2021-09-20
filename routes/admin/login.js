@@ -6,7 +6,13 @@ router.get('/', function (req, res, next) {
   res.render('admin/login', {
     layout: 'admin/layout',
   });
-});//cierra el get
+});//cierra el get}
+router.get('/logout', function (req, res, next) {
+  req.session.destroy(); // destruir
+  res.render('admin/login', {
+    layout: 'admin/layout'
+  });
+})
 
 router.post('/', async (req, res, next) => {
   try {
@@ -24,7 +30,7 @@ router.post('/', async (req, res, next) => {
         layout: 'admin/layout',
         error: true
       })
-    }//cierra el else
+    }//cierra el else 
   } catch (error) {
     console.log(error)
   }
