@@ -14,40 +14,59 @@
     {{!-- inicio de fila 2 --}}
     <div class="row">
         <div class="col-7">
-            <h3>Listado de Novedades</h3>
+            <h2>Listado de Novedades</h2>
         </div>
-        <div class="col-2> text_right">
-            <a href="#" class="btn btn-succes">
-                <i class="fa-plus"></i>nuevo</a>
-        </div>
+            <div class="col-2 text-right">
+                <a href="/admin/novedades/agregar" class="btn 
+                btn-success"><i class="fas fa-plus"></i>nuevo</a>
+            </div>
+        <div class="col-3 text-right">
+        <form class="form-inline" action="/admin/novedades" 
+        method="get">
+            <input class="form-control" type="search" 
+            placeholder="Buscar" aria-label="search" name="q" {{#if}} value="{{q}}" {{/i}}>
+            <button class="btn btn-secondary my-2 my.sm-0" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+        </form>
     </div>
-    {{!-- fin fila 2 --}}
-    <div class="row">
-        <div class="col">
+</div>
+{{!-- fin fila 2 --}}
+<div class="row">
+    <div class="col">
 
-            <table class="table">
-                <thead>
-                    <tr class="table table-striped">
-                        <th scope="col">#</th>
-                        <th scope="col">Titulo</th>
-                        <th scope="col" class="text-right">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each novedades}}
-                    <tr>
-                        <th scope="row">{{id}}</th>
-                        <td>{{titulo}}</td>
-                        <td class="text-right">
-                            <a href=" " class=" bt-secondary"><i class="fas fa-pencil-alt"></i>Modificar</a>
-                            <a href=" " class=" bt-secondary"><i class"fas-trash"></i>Eliminar</a>
-                        </td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr class="table table-striped">
+                    <th scope="col">#</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col" class="text-right">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each novedades}}
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <td>{{titulo}}</td>
+                    <td class="text-right">
+                        <a href="/admin/novedades/modificar/{{id}}" class=" bt-secondary"><i
+                                class="fas fa-pencil-alt"></i>Modificar</a>
+                        <a href="/admin/novedades/eliminar/{{id}}" class=" bt-secondary"><i
+                                class="fas fa-pencil-alt"></i>Modificar</a>
+                        <a href=" " class=" bt-secondary"><i class="fas-trash"></i>Eliminar</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{#if is_search}}
+        {{#unless novedades.length}}
+        no se encontraron resultados para "<b>{{q}}</b>"
+        {{/unless}}
+        {{/if}}
+
     </div>
-    {{!-- fin fila 3 --}}
+</div>
+{{!-- fin fila 3 --}}
 </div>
  

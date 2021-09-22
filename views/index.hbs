@@ -47,119 +47,40 @@
         <div class="col-md-5 offset-md-2 py-3">
             <h2>Usos</h2>
             <ul class="lista-usos">
-                <li><a data-toggle="modal" data-target="#modalEjemplo""href=" #"><img 
-                            src="images/usos01.jpg">Madera</a></li>
-                <li><a data-toggle="modal" data-target="#modalEjemplo1""href=" #"><img
-                            src="images/usos01.jpg">Ornamentacíon</a></li>
-                <li><a data-toggle="modal" data-target="#modalEjemplo2""href=" #"><img 
-                            src="images/usos01.jpg">Fertilización</a></li>
-                <li><a data-toggle="modal" data-target="#modalEjemplo3""href=" #"><img
-                            src="images/usos01.jpg">forestación</a></li>
+                {{#each novedades}}
+                <li><a data-toggle="modal" data-target="#modal{{id}}"
+                href="javascript:void(0)"><img src="{{imagen}}"
+                widht="120">{{titulo}}</a>
+                {{titulo}}</a>
+                </li>
+                {{/each}}
+                
             </ul>
         </div>
         <!--inicio del modal-->
-        <div class="modal fade" id="modalEjemplo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        {{#each novedades}}
+        {{!-- Modal --}}
+        <div class="modal fade" id="modal{{id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Usos del Kiri</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">titulo</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>La madera de Paulownia, también conocida como kiri, es un material que con el tiempo ha ido
-                            ganando en popularidad gracias a sus características únicas. De origen chino, lleva siglos
-                            extendida por toda Asia, donde es muy conocida y usada.
-
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
+                        <h6>{{subtitulo}}</h6>
+                        <img scr="{{imagen}}" alt="{{titulo}}">
+                        <p>{{cuerpo}}</p>
                     </div>
                 </div>
             </div>
         </div>
+        {{/each}}
         <!--findel modal-->
-        <!--inicio del modal1-->
-        <div class="modal fade" id="modalEjemplo1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Usos del Kiri</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p> Con una altura de hasta 27 metros y grandes hojas y vistosas flores, el kiri se popularizó
-                            como planta ornamental en Japón, desde donde se extendió a Europa en el siglo XIX.
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--findel modal-->
-        <!--inicio del modal-->
-        <div class="modal fade" id="modalEjemplo2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Usos del Kiri</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>¿
-                            La lucha contra la desertificación y el cambio climático podría tener un gran aliado en la
-                            propia naturaleza. Y eso es porque existe una planta capaz de crecer en tierras en las que
-                            ninguna otra especie podría sobrevivir, aportándole además toda clase de nutrientes que la
-                            transforman en un suelo fértil. Entre sus características destaca su capacidad para resistir
-                            a agresiones extremas, como el fuego, ya que puede regenerar sus raíces y vasos de
-                            crecimiento de forma rápida incluso en terrenos casi estériles.
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--findel modal-->
-        <!--inicio del modal-->
-        <div class="modal fade" id="modalEjemplo3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Usos del Kiri</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Por qué puede salvar al planeta? Si hay un candidato para luchar contra el cambio climático
-                            es el Kiri. Este árbol tiene un crecimiento veloz y en solo ocho años puede llegar a medir
-                            lo mismo que un roble de 40 años. ... El kiri tiene una capacidad de regenerar sus raíces y
-                            vasos de crecimiento en condiciones adversas.
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--findel modal-->
-
-
+ 
+      {{!-- Especies   --}}
         <!--carrusel-->
         <div class="col-md-3">
             <div class="rounder py-3 especies">
